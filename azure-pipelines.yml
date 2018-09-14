@@ -33,6 +33,6 @@ jobs:
       testResultsFiles: "**/test-results.xml"
       testRunTitle: 'Publish test results for Python $(python.version)'
       
-name: My Cool Build
+name: My Cool new Build
 trigger:
 - *
