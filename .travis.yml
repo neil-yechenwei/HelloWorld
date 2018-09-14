@@ -4,9 +4,3 @@ python:
   - "3.5"
   - "3.4"
   - "2.7"
-install:
-  - pip install -r requirements_travis.txt
-script:
-  - pytest -m unit # & pylint iotedgedev # or py.test for Python versions 3.5 and below
-env:
-  - DOTENV_FILE=".env.tmp"
