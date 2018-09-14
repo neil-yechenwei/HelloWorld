@@ -9,4 +9,4 @@ file_list = ["requirements.txt", "module.json", "main.py", "Dockerfile.arm32v7",
 
 
 def test_check_iotedgemodule_exist():
-    assert 1==1
+    assert 2==2
