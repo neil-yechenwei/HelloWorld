@@ -1,4 +1,0 @@
-[
-  "tests/test_iotedgemodule.py::test_check_file_exist",
-  "tests/test_iotedgemodule.py::test_check_module_json_context"
-]
