@@ -20,7 +20,7 @@ jobs:
   #     - powershell: |
   #         ls $env:BUILD_REPOSITORY_LOCALPATH
   #         write-host "-------------------------------"
-  #         ls $env:Build_ArtifactStagingDirectory
+  #         ls $env:BUILD_ARTIFACTSTAGINGDIRECTORY
   #       displayName: "PowerShell Script"
 
   #     - task: PublishBuildArtifacts@1
