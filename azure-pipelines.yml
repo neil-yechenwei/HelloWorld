@@ -1,4 +1,18 @@
 jobs:
+  - job: CopyFiles
+    steps:
+      - task: CopyFiles@2
+        inputs:
+          SourceFolder: "$(BUILD.REPOSITORY.LOCALPATH)"
+          TargetFolder: "$(Build.ArtifactStagingDirectory)"
+        displayName: "Copy Files to: dis"
+
+      - powershell: |
+          ls $env:BUILD_REPOSITORY_LOCALPATH
+          write-host "-------------------------------"
+          ls $env:Build_ArtifactStagingDirectory
+        displayName: "PowerShell Script"
+
   - job: Linux
     pool:
       vmImage: "ubuntu-16.04"
