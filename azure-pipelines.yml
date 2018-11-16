@@ -1,7 +1,7 @@
 jobs:
   - job: CopyFiles
     pool:
-      vmImage: "win1803"
+      vmImage: "ubuntu-16.04"
 
     steps:
       - powershell: |
@@ -13,7 +13,7 @@ jobs:
       - task: CopyFiles@2
         inputs:
           SourceFolder: $(BUILD.REPOSITORY.LOCALPATH)\dist\
-          TargetFolder: "$(Build.ArtifactStagingDirectory)"
+          TargetFolder: $(Build.ArtifactStagingDirectory)
         displayName: "Copy Files to: dis"
 
       - powershell: |
