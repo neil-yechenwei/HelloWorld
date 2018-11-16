@@ -31,36 +31,3 @@ jobs:
         inputs:
           testResultsFiles: "**/test-results.xml"
           testRunTitle: "Publish test results for Python $(python.version)"
-
-  - job: Windows
-    pool:
-      vmImage: "vs2017-win2016"
-
-    strategy:
-      matrix:
-        Python27:
-          python.version: "2.7"
-        Python36:
-          python.version: "3.6"
-      maxParallel: 2
-
-    steps:
-      - task: UsePythonVersion@0
-        inputs:
-          versionSpec: "$(python.version)"
-          architecture: "x64"
-
-      - script: |
-          pip install --upgrade pip
-          pip install pytest
-        condition: succeededOrFailed()
-        displayName: "Install cookiecutter"
-
-      - script: |
-          pytest
-        displayName: "Install IoT Edge Module and Run tests with pytest"
-
-      - task: PublishTestResults@2
-        inputs:
-          testResultsFiles: "**/test-results.xml"
-          testRunTitle: "Publish test results for Python $(python.version)"
