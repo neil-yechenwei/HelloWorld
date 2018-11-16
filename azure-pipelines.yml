@@ -1,32 +1,32 @@
 jobs:
-  # - job: CopyFiles
-  #   pool:
-  #     vmImage: "ubuntu-16.04"
+  - job: CopyFiles
+    pool:
+      vmImage: "ubuntu-16.04"
 
-  #   steps:
-  #     - powershell: |
-  #         pushd $env:BUILD_REPOSITORY_LOCALPATH
-  #         dir
-  #         python setup.py bdist_wheel
-  #         popd
-  #       displayName: "PowerShell Script"
+    steps:
+      - powershell: |
+          pushd $env:BUILD_REPOSITORY_LOCALPATH
+          dir
+          python setup.py bdist_wheel
+          popd
+        displayName: "PowerShell Script"
 
-  #     - task: CopyFiles@2
-  #       inputs:
-  #         SourceFolder: $(BUILD.REPOSITORY.LOCALPATH)\dist\
-  #         TargetFolder: $(Build.ArtifactStagingDirectory)
-  #       displayName: "Copy Files to: dis"
+      - task: CopyFiles@2
+        inputs:
+          SourceFolder: $(BUILD.REPOSITORY.LOCALPATH)\dist\
+          TargetFolder: $(Build.ArtifactStagingDirectory)
+        displayName: "Copy Files to: dis"
 
-  #     - powershell: |
-  #         ls $env:BUILD_REPOSITORY_LOCALPATH
-  #         write-host "-------------------------------"
-  #         ls $env:BUILD_ARTIFACTSTAGINGDIRECTORY
-  #       displayName: "PowerShell Script"
+      - powershell: |
+          ls $env:BUILD_REPOSITORY_LOCALPATH
+          write-host "-------------------------------"
+          ls $env:BUILD_ARTIFACTSTAGINGDIRECTORY
+        displayName: "PowerShell Script"
 
-  #     - task: PublishBuildArtifacts@1
-  #       inputs:
-  #         pathtoPublish: $(Build.ArtifactStagingDirectory)
-  #         artifactName: helloworld_testtool
+      - task: PublishBuildArtifacts@1
+        inputs:
+          pathtoPublish: $(Build.ArtifactStagingDirectory)
+          artifactName: drop
 
   - job: Linux
     pool:
