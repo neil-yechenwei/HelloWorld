@@ -23,12 +23,6 @@ jobs:
           TargetFolder: $(Build.ArtifactStagingDirectory)
         displayName: "Copy Files to: dis"
 
-      - powershell: |
-          ls $env:BUILD_REPOSITORY_LOCALPATH
-          write-host "-------------------------------"
-          ls $env:BUILD_ARTIFACTSTAGINGDIRECTORY
-        displayName: "PowerShell Script"
-
       - task: PublishBuildArtifacts@1
         inputs:
           pathtoPublish: $(Build.ArtifactStagingDirectory)
