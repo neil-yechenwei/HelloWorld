@@ -11,11 +11,17 @@ jobs:
       #     popd
       #   displayName: "PowerShell Script"
 
+      # - task: CopyFiles@2
+      #   inputs:
+      #     SourceFolder: $(BUILD.REPOSITORY.LOCALPATH)/dist
+      #     TargetFolder: $(Build.ArtifactStagingDirectory)
+      #   displayName: "Copy Files to: dis"
+
       - task: CopyFiles@2
         inputs:
-          SourceFolder: $(BUILD.REPOSITORY.LOCALPATH)/dist
+          SourceFolder: $(BUILD.REPOSITORY.LOCALPATH)/tests
           TargetFolder: $(Build.ArtifactStagingDirectory)
-        displayName: "Copy Files to: dis"
+        displayName: "Copy Files to from dist to drop folder"
 
       - task: PublishBuildArtifacts@1
         inputs:
