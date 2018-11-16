@@ -1,22 +1,31 @@
 jobs:
   - job: CopyFiles
+    pool:
+      vmImage: "win1803"
+
     steps:
+      - powershell: |
+          pushd $env:BUILD_REPOSITORY_LOCALPATH
+          python setup.py bdist_wheel
+          popd
+        displayName: "PowerShell Script"
+
       - task: CopyFiles@2
         inputs:
-          SourceFolder: "$(BUILD.REPOSITORY.LOCALPATH)"
+          SourceFolder: "$(BUILD.REPOSITORY.LOCALPATH)\dist"
           TargetFolder: "$(Build.ArtifactStagingDirectory)"
         displayName: "Copy Files to: dis"
-
-      - task: PublishBuildArtifacts@1
-        inputs:
-          pathtoPublish: $(Build.ArtifactStagingDirectory)
-          artifactName: helloworldtesttool
 
       - powershell: |
           ls $env:BUILD_REPOSITORY_LOCALPATH
           write-host "-------------------------------"
           ls $env:Build_ArtifactStagingDirectory
         displayName: "PowerShell Script"
+
+      - task: PublishBuildArtifacts@1
+        inputs:
+          pathtoPublish: $(Build.ArtifactStagingDirectory)
+          artifactName: helloworld_testtool
 
   - job: Linux
     pool:
