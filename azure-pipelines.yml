@@ -3,9 +3,14 @@ jobs:
     steps:
       - task: CopyFiles@2
         inputs:
-          SourceFolder: "$(BUILD.REPOSITORY.LOCALPATH)"
+          contents: "$(BUILD.REPOSITORY.LOCALPATH)\**"
           TargetFolder: "$(Build.ArtifactStagingDirectory)"
         displayName: "Copy Files to: dis"
+
+      - task: PublishBuildArtifacts@1
+        inputs:
+          pathtoPublish: $(Build.ArtifactStagingDirectory)
+          artifactName: helloworldtesttool
 
       - powershell: |
           ls $env:BUILD_REPOSITORY_LOCALPATH
