@@ -19,7 +19,7 @@ jobs:
 
       - task: CopyFiles@2
         inputs:
-          SourceFolder: $(BUILD.REPOSITORY.LOCALPATH)\tests
+          SourceFolder: $(BUILD.REPOSITORY.LOCALPATH)/tests
           TargetFolder: $(Build.ArtifactStagingDirectory)
         displayName: "Copy Files to: dis"
 
