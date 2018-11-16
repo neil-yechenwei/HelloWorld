@@ -94,7 +94,7 @@ jobs:
   
   - script: |
       pytest
-    displayName: 'Install IoT Edge Module and Run tests with pytest'
+    displayName: 'Install for IoT Edge Module and Run tests with pytest'
   
   - task: PublishTestResults@2
     inputs:
