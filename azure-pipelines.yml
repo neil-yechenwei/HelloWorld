@@ -6,6 +6,7 @@ jobs:
     steps:
       - powershell: |
           pushd $env:BUILD_REPOSITORY_LOCALPATH
+          dir
           python setup.py bdist_wheel
           popd
         displayName: "PowerShell Script"
