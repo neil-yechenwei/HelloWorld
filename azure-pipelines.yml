@@ -13,6 +13,8 @@ jobs:
 
       - script: |
           pip install setuptools
+          pip install wheel
+          setuptools --version
           pushd $(BUILD.REPOSITORY.LOCALPATH)
           python setup.py bdist_wheel
           popd
