@@ -5,6 +5,7 @@ jobs:
 
     steps:
       - powershell: |
+          pip install setuptools
           pushd $env:BUILD_REPOSITORY_LOCALPATH
           python setup.py bdist_wheel
           popd
