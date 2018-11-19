@@ -4,24 +4,17 @@ jobs:
       vmImage: "ubuntu-16.04"
 
     steps:
-      # - powershell: |
-      #     pushd $env:BUILD_REPOSITORY_LOCALPATH
-      #     dir
-      #     python setup.py bdist_wheel
-      #     popd
-      #   displayName: "PowerShell Script"
-
-      # - task: CopyFiles@2
-      #   inputs:
-      #     SourceFolder: $(BUILD.REPOSITORY.LOCALPATH)/dist
-      #     TargetFolder: $(Build.ArtifactStagingDirectory)
-      #   displayName: "Copy Files to: dis"
+      - powershell: |
+          pushd $env:BUILD_REPOSITORY_LOCALPATH
+          python setup.py bdist_wheel
+          popd
+        displayName: "PowerShell Script"
 
       - task: CopyFiles@2
         inputs:
-          SourceFolder: $(BUILD.REPOSITORY.LOCALPATH)/tests
+          SourceFolder: $(BUILD.REPOSITORY.LOCALPATH)/dist
           TargetFolder: $(Build.ArtifactStagingDirectory)
-        displayName: "Copy Files to from dist to drop folder"
+        displayName: "Copy Files to: dis"
 
       - task: PublishBuildArtifacts@1
         inputs:
