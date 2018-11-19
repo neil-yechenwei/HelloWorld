@@ -4,6 +4,13 @@ jobs:
       vmImage: "ubuntu-16.04"
 
     steps:
+      - task: UsePythonVersion@0
+        displayName: "Use Python 3.6"
+        inputs:
+          versionSpec: 3.6
+          addToPath: true
+          architecture: "x64"
+
       - powershell: |
           pip install --upgrade pip
           pip install setuptools
