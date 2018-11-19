@@ -15,7 +15,7 @@ jobs:
           echo $(BUILD.SOURCEBRANCH)
           ((Get-Content -path "$(BUILD.REPOSITORY.LOCALPATH)\iotedgehubdev\__init__.py" -Raw) -replace "__AIkey__ = '.*'","__AIkey__ = '95b20d64-f54f-4de3-8ad5-88888888'") | Set-Content -Path "$(BUILD.REPOSITORY.LOCALPATH)\iotedgehubdev\__init__.py"
           Get-Content -path "$(BUILD.REPOSITORY.LOCALPATH)\iotedgehubdev\__init__.py"
-        condition: and(succeeded(), eq(variables['build.sourceBranch'], 'refs/heads/v-cheye_005'))
+        condition: and(succeeded(), eq(variables['build.sourceBranch'], 'refs/heads/*'))
         displayName: "PowerShell Script"
 
       - script: |
