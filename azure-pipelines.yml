@@ -13,8 +13,7 @@ jobs:
 
       - script: |
           pip install setuptools
-          pushd $(Build.Repository.LocalPath)
-          dir
+          pushd $(BUILD.REPOSITORY.LOCALPATH)
           python setup.py bdist_wheel
           popd
         displayName: "PowerShell Script"
