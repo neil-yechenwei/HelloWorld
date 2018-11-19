@@ -37,7 +37,7 @@ dependencies = [
 ]
 
 setup(
-    name='helloworldtesttool',
+    name='helloworldtesttoolneil',
     version=VERSION,
     url='https://github.com/neil-yechenwei/HelloWorld',
     license='MIT',
@@ -53,7 +53,7 @@ setup(
     install_requires=dependencies,
     entry_points={
         'console_scripts': [
-            'helloworldtesttool = iotedgehubdev.cli:main',
+            'helloworldtesttoolneil = iotedgehubdev.cli:main',
         ],
     },
     classifiers=[
