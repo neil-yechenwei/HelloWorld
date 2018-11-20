@@ -8,12 +8,12 @@ jobs:
         displayName: "PowerShell Script"
         inputs:
           scriptType: inlineScript
-          arguments: "-apikey $(api_key)"
+          arguments: "-aikey $(AI_KEY)"
           workingFolder: "$(Build.ArtifactStagingDirectory)"
           inlineScript: |
-            param($apikey)  
+            param($aikey)  
             write-host "123123"
-            write-host $apikey
+            write-host $aikey
             write-host "123123"
 
   - job: Linux
