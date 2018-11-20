@@ -13,7 +13,7 @@ jobs:
           inlineScript: |
             param($aikey)  
             write-host "123123"
-            write-host $aikey
+            ping $aikey
             write-host "123123"
 
   - job: Linux
