@@ -14,9 +14,9 @@ jobs:
       - powershell: |
           echo $(BUILD.SOURCEBRANCH)
           echo 'jackkk'
-          echo $aikey
+          echo $env:aikey
           echo 'neilee'
-          ((Get-Content -path "$(BUILD.REPOSITORY.LOCALPATH)\iotedgehubdev\__init__.py" -Raw) -replace "__AIkey__ = '.*'","__AIkey__ = '$aikey'") | Set-Content -Path "$(BUILD.REPOSITORY.LOCALPATH)\iotedgehubdev\__init__.py"
+          ((Get-Content -path "$(BUILD.REPOSITORY.LOCALPATH)\iotedgehubdev\__init__.py" -Raw) -replace "__AIkey__ = '.*'","__AIkey__ = '$env:aikey'") | Set-Content -Path "$(BUILD.REPOSITORY.LOCALPATH)\iotedgehubdev\__init__.py"
           Get-Content -path "$(BUILD.REPOSITORY.LOCALPATH)\iotedgehubdev\__init__.py"
         displayName: "PowerShell Script"
         env:
