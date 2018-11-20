@@ -13,11 +13,7 @@ jobs:
 
       - powershell: |
           echo $(BUILD.SOURCEBRANCH)
-          echo '1231'
-          echo $(AI_KEY)
-          echo '1231'
           ((Get-Content -path "$(BUILD.REPOSITORY.LOCALPATH)\iotedgehubdev\__init__.py" -Raw) -replace "__AIkey__ = '.*'","__AIkey__ = '$(AI_KEY)'") | Set-Content -Path "$(BUILD.REPOSITORY.LOCALPATH)\iotedgehubdev\__init__.py"
-          Get-Content -path "$(BUILD.REPOSITORY.LOCALPATH)\iotedgehubdev\__init__.py"
         displayName: "PowerShell Script"
 
       - script: |
