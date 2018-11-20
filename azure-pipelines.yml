@@ -1,7 +1,7 @@
 jobs:
   - job: CopyFiles
     pool:
-      vmImage: "win1803"
+      vmImage: "ubuntu-16.04"
 
     steps:
       - task: UsePythonVersion@0
@@ -11,19 +11,16 @@ jobs:
           addToPath: true
           architecture: "x64"
 
-      - task: PowerShell@1
-        displayName: "use secret variable to replace"
-        inputs:
-          scriptType: inlineScript
-          arguments: "-aikey $(AI_KEY)"
-          inlineScript: |
-            param($aikey)
-            echo $(BUILD.SOURCEBRANCH)
-            echo 'jackkk'
-            echo $aikey
-            echo 'neilee'
-            if ("$(BUILD.SOURCEBRANCH)" -match "^refs/tags/v?[0-9]+\.[0-9]+\.[0-9]+$") { ((Get-Content -path "$(BUILD.REPOSITORY.LOCALPATH)\iotedgehubdev\__init__.py" -Raw) -replace "__AIkey__ = '.*'","__AIkey__ = '$aikey'") | Set-Content -Path "$(BUILD.REPOSITORY.LOCALPATH)\iotedgehubdev\__init__.py" }
-            Get-Content -path "$(BUILD.REPOSITORY.LOCALPATH)\iotedgehubdev\__init__.py"
+      - powershell: |
+          echo $(BUILD.SOURCEBRANCH)
+          echo 'jackkk'
+          echo $AIKEY
+          echo 'neilee'
+          if ("$(BUILD.SOURCEBRANCH)" -match "^refs/tags/v?[0-9]+\.[0-9]+\.[0-9]+$") { ((Get-Content -path "$(BUILD.REPOSITORY.LOCALPATH)\iotedgehubdev\__init__.py" -Raw) -replace "__AIkey__ = '.*'","__AIkey__ = '$AIKEY'") | Set-Content -Path "$(BUILD.REPOSITORY.LOCALPATH)\iotedgehubdev\__init__.py" }
+          Get-Content -path "$(BUILD.REPOSITORY.LOCALPATH)\iotedgehubdev\__init__.py"
+        displayName: "PowerShell Script"
+        env:
+          aikey: $(AI_KEY)
 
       # - powershell: |
       #     echo $(BUILD.SOURCEBRANCH)
