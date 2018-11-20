@@ -1,0 +1,3 @@
+[
+  "tests/test_helloworld.py::test_check_iotedgemodule_exist"
+]
