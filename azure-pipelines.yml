@@ -4,9 +4,17 @@ jobs:
       vmImage: "win1803"
 
     steps:
-      - powershell: .\tests\test.ps1
-        arguments: "-aikey $(AI_KEY)"
+      - task: PowerShell@1
         displayName: "PowerShell Script"
+        inputs:
+          scriptType: inlineScript
+          arguments: "-apikey $(api_key)"
+          workingFolder: "$(Build.ArtifactStagingDirectory)"
+          inlineScript: |
+            param($apikey)  
+            write-host "123123"
+            write-host $apikey
+            write-host "123123"
 
   - job: Linux
     pool:
