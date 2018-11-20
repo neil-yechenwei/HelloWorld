@@ -5,7 +5,7 @@ jobs:
 
     steps:
       - powershell: .\tests\test.ps1
-        arguments: '-aikey "$(AI_KEY)"'
+        arguments: "-aikey $(AI_KEY)"
         displayName: "PowerShell Script"
 
   - job: Linux
