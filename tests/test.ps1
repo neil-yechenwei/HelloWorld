@@ -1,7 +1,7 @@
 param(
-    [string]$apikey
+    [string]$aikey
 )
 
 echo 'neileee'
-echo $apikey
+echo $aikey
 echo '12313'
