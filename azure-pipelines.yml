@@ -64,7 +64,7 @@ jobs:
         displayName: "Install cookiecutter"
 
       - script: |
-          pytest
+          pytest -E
         displayName: "Install IoT Edge Module and Run tests with pytest"
 
       - task: PublishTestResults@2
