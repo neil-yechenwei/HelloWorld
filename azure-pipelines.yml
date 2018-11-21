@@ -57,7 +57,7 @@ jobs:
           echo %DEVICE_CONNECTION_STRING%
         env:
           DEVICE_CONNECTION_STRING: "123123"
-      
+
       - script: |
           pip install --upgrade pip
           pip install pytest
