@@ -54,6 +54,11 @@ jobs:
           architecture: "x64"
 
       - script: |
+          echo %DEVICE_CONNECTION_STRING%
+        env:
+          DEVICE_CONNECTION_STRING: ${DEVICE_CONNECTION_STRING}
+      
+      - script: |
           pip install --upgrade pip
           pip install pytest
         condition: succeededOrFailed()
