@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><testsuite errors="1" failures="0" name="pytest" skips="0" tests="1" time="0.388"><testcase classname="" file="tests/test_helloworld.py" name="tests.test_helloworld" time="0"><error message="collection failure">tests\test_helloworld.py:5: in &lt;module&gt;
+<?xml version="1.0" encoding="utf-8"?><testsuite errors="1" failures="0" name="pytest" skips="0" tests="1" time="0.216"><testcase classname="" file="tests/test_helloworld.py" name="tests.test_helloworld" time="0"><error message="collection failure">tests\test_helloworld.py:5: in &lt;module&gt;
     VALID_DEVICECONNECTIONSTRING = os.environ[&apos;DEVICE_CONNECTION_STRING&apos;]
 C:\Python27\lib\os.py:425: in __getitem__
     return self.data[key.upper()]
