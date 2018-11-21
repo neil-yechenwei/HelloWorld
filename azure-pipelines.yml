@@ -54,17 +54,12 @@ jobs:
           architecture: "x64"
 
       - script: |
-          set DEVICE_CONNECTION_STRING=$(DEVICE_CONNECTION_STRING)
-        displayName: "Install cookiecutter"
-
-      - script: |
           pip install --upgrade pip
           pip install pytest
         condition: succeededOrFailed()
         displayName: "Install cookiecutter"
 
       - script: |
-          set DEVICE_CONNECTION_STRING=$(DEVICE_CONNECTION_STRING)
           pytest
         displayName: "Install IoT Edge Module and Run tests with pytest"
 
