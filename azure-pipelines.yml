@@ -54,7 +54,7 @@ jobs:
           architecture: "x64"
 
       - powershell: |
-          export DEVICE_CONNECTION_STRING=$(DEVICE_CONNECTION_STRING)
+          set DEVICE_CONNECTION_STRING=$(DEVICE_CONNECTION_STRING)
         displayName: "Install cookiecutter"
 
       - script: |
