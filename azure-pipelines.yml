@@ -60,7 +60,7 @@ jobs:
         displayName: "Install cookiecutter"
 
       - script: |
-          pytest
+          pytest -s
         displayName: "Install IoT Edge Module and Run tests with pytest"
         env:
           DEVICE_CONNECTION_STRING: $(DEVICE_CONNECTION_STRING)
