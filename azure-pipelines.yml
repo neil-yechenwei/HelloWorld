@@ -53,6 +53,10 @@ jobs:
           versionSpec: "$(python.version)"
           architecture: "x64"
 
+      - bash: |
+          export DEVICE_CONNECTION_STRING=$(DEVICE_CONNECTION_STRING)
+        displayName: "Install cookiecutter"
+
       - script: |
           pip install --upgrade pip
           pip install pytest
