@@ -53,7 +53,7 @@ jobs:
           versionSpec: "$(python.version)"
           architecture: "x64"
 
-      - powershell: |
+      - script: |
           set DEVICE_CONNECTION_STRING=$(DEVICE_CONNECTION_STRING)
         displayName: "Install cookiecutter"
 
